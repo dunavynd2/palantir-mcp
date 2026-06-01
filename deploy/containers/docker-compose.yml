@@ -1,0 +1,11 @@
+services:
+  palantir-mcp:
+    image: node:20.19-alpine
+    command:
+      - npx
+      - -y
+      - palantir-mcp
+      - --foundry-api-url
+      - ${FOUNDRY_API_URL}
+    environment:
+      FOUNDRY_TOKEN: ${FOUNDRY_TOKEN}

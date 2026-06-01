@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "palantir-mcp-system": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "palantir-mcp",
+        "--foundry-api-url",
+        "https://<enrollment>.palantirfoundry.com"
+      ],
+      "env": {
+        "FOUNDRY_TOKEN": "<token>"
+      }
+    }
+  }
+}

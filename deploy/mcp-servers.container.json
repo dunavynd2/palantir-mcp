@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "palantir-mcp-container": {
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "compose",
+        "-f",
+        "<path-to-repo>/deploy/containers/docker-compose.yml",
+        "run",
+        "--rm",
+        "palantir-mcp"
+      ],
+      "env": {
+        "FOUNDRY_API_URL": "https://<enrollment>.palantirfoundry.com",
+        "FOUNDRY_TOKEN": "<token>"
+      }
+    }
+  }
+}
