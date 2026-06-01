@@ -1,13 +1,11 @@
 services:
   palantir-mcp:
-    image: node:20-alpine
-    working_dir: /workspace
+    image: node:20.19-alpine
     command:
-      - sh
-      - -lc
-      - npx -y palantir-mcp --foundry-api-url "${FOUNDRY_API_URL}"
+      - npx
+      - -y
+      - palantir-mcp
+      - --foundry-api-url
+      - ${FOUNDRY_API_URL}
     environment:
-      FOUNDRY_API_URL: ${FOUNDRY_API_URL}
       FOUNDRY_TOKEN: ${FOUNDRY_TOKEN}
-    stdin_open: true
-    tty: true

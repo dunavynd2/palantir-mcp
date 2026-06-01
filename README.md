@@ -147,11 +147,13 @@ deploy/
 
 - `deploy/containers/docker-compose.yml`: runs `palantir-mcp` in a container runtime path.
 - `deploy/systemd/palantir-mcp.service`: runs `palantir-mcp` as a system service.
-- `deploy/systemd/palantir-mcp.env.example`: environment variable template for system installs.
+- `deploy/systemd/palantir-mcp.env.example`: environment variable template for system installs (copy to `/etc/palantir-mcp/palantir-mcp.env`).
 - `deploy/mcp-servers.system.json`: MCP client config template for direct host/system execution.
-- `deploy/mcp-servers.container.json`: MCP client config template that routes execution through Docker Compose.
+- `deploy/mcp-servers.container.json`: MCP client config template that routes execution through Docker Compose (use an absolute `<path-to-repo>` value).
 
-Replace the placeholder Foundry URL and token values before use.
+Before use, replace all placeholders: `<enrollment>`, `<token>`, and `<path-to-repo>`.
+For `<path-to-repo>`, use an absolute path such as `/opt/palantir-mcp`.
+For production, consider replacing `npx` template commands with a pinned/local binary install strategy.
 
 ## Development
 
