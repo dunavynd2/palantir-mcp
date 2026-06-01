@@ -130,6 +130,29 @@ claude mcp add palantir-mcp \
 }
 ```
 
+## Deployment Architecture and Routing Templates
+
+This repository now includes a deployment-oriented directory layout with ready-to-adapt routing templates for both containerized and host/system execution paths:
+
+```text
+deploy/
+├── containers/
+│   └── docker-compose.yml
+├── systemd/
+│   ├── palantir-mcp.service
+│   └── palantir-mcp.env.example
+├── mcp-servers.system.json
+└── mcp-servers.container.json
+```
+
+- `deploy/containers/docker-compose.yml`: runs `palantir-mcp` in a container runtime path.
+- `deploy/systemd/palantir-mcp.service`: runs `palantir-mcp` as a system service.
+- `deploy/systemd/palantir-mcp.env.example`: environment variable template for system installs.
+- `deploy/mcp-servers.system.json`: MCP client config template for direct host/system execution.
+- `deploy/mcp-servers.container.json`: MCP client config template that routes execution through Docker Compose.
+
+Replace the placeholder Foundry URL and token values before use.
+
 ## Development
 
 ```bash

@@ -1,0 +1,14 @@
+[Unit]
+Description=Palantir MCP Wrapper
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/palantir-mcp/palantir-mcp.env
+ExecStart=/bin/sh -lc '/usr/bin/env npx -y palantir-mcp --foundry-api-url "$FOUNDRY_API_URL"'
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
